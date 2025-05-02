@@ -1,0 +1,234 @@
+---
+title: "From Man vs. Machine to Man + Machine"
+author: "Your Name"
+date: "02 May, 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    center: true
+    incremental: true
+    css: style.css
+    embed-resources: true
+---
+
+## A Moment in History: Man vs. Machine
+
+<div style="text-align: center;">
+  <img src="images/kasparov.avif" width="600">
+</div>
+
+- In 1997, world champion Garry Kasparov lost to IBM's Deep Blue.
+
+
+
+## From Adversaries to Allies
+
+- After losing, Kasparov didn’t give up — he adapted.
+
+- He introduced “centaur chess”, pairing human intuition with machine power.
+
+
+## From Chess to Finance
+
+Kasparov's idea of man + machine wasn't just for chess.
+
+This study brings that question into finance:  
+
+  - Can human analysts and AI models compete — or collaborate — in forecasting the market?
+
+  - To explore this, the authors created an AI analyst and compared it to real professionals.
+
+
+
+
+
+
+
+
+## Meet the Analysts
+
+::::: columns
+::: {.column width="50%"}
+![Human Analyst](images/human_analyst.png)
+
+<div style="font-size: 0.8em;">
+
+- Uses intuition and experience  
+- Reads disclosures, meets firms  
+- Prone to cognitive or incentive bias  
+
+</div>
+:::
+
+::: {.column width="50%"}
+![AI Analyst](images/ai_analyst.png)
+
+<div style="font-size: 0.8em;">
+
+- Absorbs massive data  
+- Fast, consistent, unbiased  
+- But lacks nuance or context  
+
+</div>
+:::
+:::::
+
+
+
+## The Prediction Setup
+
+In this study, both human and AI analysts forecast 12-month-ahead stock returns using target prices.
+
+- Target prices reflect analysts' valuation beliefs  
+- Predicted return = (Target – Current Price) / Current Price
+
+::: {.incremental}
+- Target prices are preferred over earnings forecasts:
+  - They capture longer-term firm value
+  - Earnings forecasts are often influenced by managerial efforts to meet expectations
+:::
+
+
+## Research Questions
+
+This study addresses three core questions:
+
+1. Can an AI analyst predict 12-month-ahead stock returns more accurately than human analysts?
+
+2. When do human analysts outperform AI — and why?
+
+3. Does combining AI and human forecasts improve accuracy and reduce large errors?
+
+## Methodology: Overview
+
+- The authors construct an AI analyst using machine learning
+- The model forecasts 12-month-ahead stock returns derived from target prices
+- Each forecast is based on a rolling 3-year window of past data, simulating real-time prediction
+- Human forecasts are not used as inputs — predictions are made entirely from public information
+
+## Methodology: Modeling Approach
+
+The AI analyst uses an ensemble of machine learning models:
+
+- Long Short-Term Memory (LSTM) networks — capture sequential patterns in financial time series
+- Random forest — robust to noise and effective with many predictors
+- Gradient boosting — excels at handling non-linear relationships and variable interactions
+
+- The ensemble leverages the strengths of each model type to improve predictive accuracy.
+
+
+
+## The Data: AI Analyst Input Overview
+
+The AI analyst is trained on a wide variety of publicly available information.
+
+- Human analyst data: I/B/E/S target prices (2001–2018)
+- AI model: trained on 3 years of historical data prior to each forecast
+- Forecast target: 12-month stock return based on target price
+
+## The Data: Categories of inputs
+The model draws from six key categories of inputs:
+
+```{mermaid}
+graph TD
+  A[AI Analyst Inputs] --> B[Firm Data]
+  A --> C[Industry Data]
+  A --> D[Macro Data]
+  A --> E[Filings]
+  A --> F[Sentiment]
+  A --> G[Innovation]
+```
+
+Structure:
+
+- Structured Inputs
+
+- Textual and Alternative Inputs
+
+
+## The Data: Structured Inputs
+
+**Firm Data:**
+- Size, book-to-market, ROA
+- Leverage, accruals
+- Past returns (1–36 months), volatility
+- Amihud illiquidity
+
+**Industry Data:**
+- Fama-French industry groupings
+- Industry competition (text-based)
+- Product market fluidity
+
+**Macro Data:**
+- GDP growth, CPI, oil prices
+- Treasury yields, credit spreads
+- Market-level illiquidity
+
+
+## The Data: Textual and Alternative Inputs
+
+**Filings (10-K, 10-Q, 8-K):**
+- Sentiment and tone (Loughran–McDonald)
+- Readability and complexity
+- Text similarity and novelty
+
+**Sentiment:**
+- RavenPack news sentiment
+- Twitter-based firm sentiment (Cao et al. 2021a)
+
+**Innovation:**
+- Patent value estimates (Kogan et al. 2017)
+
+## Results: Performance – AI vs. Human
+
+AI uses only public data, with no access to analyst forecasts or private information.
+
+- The AI analyst outperforms human analysts in approximately 54.5% of stock forecasts.
+  - This outperformance is consistent across time, sectors, and market conditions.
+
+## Results: When Humans Outperform AI
+
+While the AI model performs better overall, human analysts outperform in specific contexts:
+
+- Firms with high intangible assets (e.g. R&D, brand value)
+- Firms facing financial distress or complex restructuring
+- Stocks with low liquidity or limited trading activity
+- Situations requiring qualitative judgment or soft information
+
+
+## Results: Man + Machine – The Hybrid Model
+
+Combining AI forecasts with human analyst inputs creates a hybrid “centaur” analyst.
+
+- The hybrid model slightly outperforms standalone AI in forecast accuracy.
+- It improves consistency and reduces large forecast errors.
+- Man + Machine captures the strengths of both:
+  - AI’s scale and objectivity
+  - Human analysts’ intuition and contextual judgment
+
+
+## The Hybrid Model Avoids Extreme Errors
+
+- Extreme errors = forecasts in the top 10% of squared prediction errors
+
+- Man + Machine avoids:
+  - 90.7% of extreme errors made by human analysts
+  - 43.6% of extreme errors made by the AI model
+
+## Conclusion
+
+1. Can AI outperform human analysts?
+   - Yes, AI beats the best human analyst in ~54.5% of cases using only public data.
+
+2. When do human analysts outperform AI?
+   - In complex settings like illiquidity, distress, and high intangibles — where qualitative judgment matters.
+
+3. Can combining AI and human forecasts improve results?
+   - Yes, the hybrid model slightly improves accuracy and greatly reduces extreme forecasting errors.
+
+
+
+
+
