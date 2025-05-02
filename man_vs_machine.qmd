@@ -1,6 +1,6 @@
 ---
 title: "From Man vs. Machine to Man + Machine"
-author: "Your Name"
+author: "Bhaswar Chakma"
 date: "02 May, 2025"
 format:
   revealjs:
@@ -84,11 +84,10 @@ In this study, both human and AI analysts forecast 12-month-ahead stock returns 
 - Target prices reflect analysts' valuation beliefs  
 - Predicted return = (Target – Current Price) / Current Price
 
-::: {.incremental}
 - Target prices are preferred over earnings forecasts:
-  - They capture longer-term firm value
-  - Earnings forecasts are often influenced by managerial efforts to meet expectations
-:::
+  - Reflect longer-term firm value
+  - Less affected by short-term managerial manipulation
+
 
 
 ## Research Questions
@@ -116,8 +115,19 @@ The AI analyst uses an ensemble of machine learning models:
 - Random forest — robust to noise and effective with many predictors
 - Gradient boosting — excels at handling non-linear relationships and variable interactions
 
-- The ensemble leverages the strengths of each model type to improve predictive accuracy.
+- The ensemble integrates strengths of each model to improve predictive accuracy and robustness.
 
+
+## The Data: Sample Overview
+
+- **Data sources:**
+  - I/B/E/S, Compustat, CRSP (structured data)
+  - RavenPack (news sentiment), Twitter (social media)
+  - SEC EDGAR (filings), Kogan et al. (patents)
+
+- Over 1.15 million target price forecasts, covering thousands of U.S. firms
+
+- Coverage spans all major sectors, firm sizes, and time periods (2001–2018)
 
 
 ## The Data: AI Analyst Input Overview
@@ -129,6 +139,7 @@ The AI analyst is trained on a wide variety of publicly available information.
 - Forecast target: 12-month stock return based on target price
 
 ## The Data: Categories of inputs
+
 The model draws from six key categories of inputs:
 
 ```{mermaid}
@@ -141,11 +152,6 @@ graph TD
   A --> G[Innovation]
 ```
 
-Structure:
-
-- Structured Inputs
-
-- Textual and Alternative Inputs
 
 
 ## The Data: Structured Inputs
@@ -181,12 +187,60 @@ Structure:
 **Innovation:**
 - Patent value estimates (Kogan et al. 2017)
 
+
+
 ## Results: Performance – AI vs. Human
 
 AI uses only public data, with no access to analyst forecasts or private information.
 
 - The AI analyst outperforms human analysts in approximately 54.5% of stock forecasts.
   - This outperformance is consistent across time, sectors, and market conditions.
+
+## Results: What Drives the AI Analyst?
+
+```{r, echo = FALSE}
+# Load libraries
+library(ggplot2)
+library(dplyr)
+
+# Create the data frame with correct values from Figure 2
+df <- data.frame(
+  Category = c(
+    "Macroeconomic variables",
+    "Firm return history and prices",
+    "Firm characteristics",
+    "Industry variables",
+    "Textual variables",
+    "Earnings (firm and industry)"
+  ),
+  Contribution = c(27.6, 24.4, 22.0, 14.7, 9.3, 2.0),
+  Type = c("Structured", "Structured", "Structured", 
+           "Structured", "Unstructured/Alternative", "Structured")
+)
+
+# Sort by descending contribution
+df <- df %>%
+  arrange(desc(Contribution))
+
+# Create the plot
+ggplot(df, aes(x = reorder(Category, Contribution), y = Contribution, fill = Type)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = paste0(Contribution, "%")), 
+            hjust = -0.1, size = 4.2) +
+  coord_flip() +
+  scale_fill_manual(values = c("Structured" = "steelblue", "Unstructured/Alternative" = "darkorange")) +
+  labs(
+    title = "Contribution of groups of variables to the AI prediction: take-one-out approach.",
+    x = "",
+    y = "Contribution (%)",
+    fill = "Input Type"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(plot.margin = margin(5.5, 40, 5.5, 5.5, "pt")) +
+  ylim(0, 35)
+
+```
+
 
 ## Results: When Humans Outperform AI
 
@@ -200,7 +254,7 @@ While the AI model performs better overall, human analysts outperform in specifi
 
 ## Results: Man + Machine – The Hybrid Model
 
-Combining AI forecasts with human analyst inputs creates a hybrid “centaur” analyst.
+Combining AI forecasts with analyst predictions and profiles creates a hybrid “centaur” analyst.
 
 - The hybrid model slightly outperforms standalone AI in forecast accuracy.
 - It improves consistency and reduces large forecast errors.
