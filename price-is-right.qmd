@@ -1,0 +1,168 @@
+---
+title: "The Price Is Right: Auction Theory for NPL Markets"
+author: "Bhaswar Chakma"
+date: "14 May, 2025"
+format: 
+  revealjs:
+    theme: simple
+    css: style.css
+    embed-resources: true
+    plugins: [notes]
+---
+
+## NPL
+
+![](images/npl01.png){width=50% fig-align="center"}
+
+## Background on NPLs
+
+- Non-Performing Loans (NPLs) = loans unlikely to be repaid.
+- Weaken bank balance sheets → reduced lending and credit supply.
+- Challenge: Build an efficient, competitive market for NPLs.
+
+---
+
+## NPLs on the balance sheets of European banks
+
+- At the end of 2017: €770 billion of troubled loans
+
+- 7% of the whole euro area GDP
+
+---
+
+## IMF Suggestions & East Asian Approach
+
+IMF:
+
+1. Stronger banking regulation.
+2. Faster legal enforcement (e.g., insolvency reform).
+3. Develop a secondary market for NPLs.
+
+East Asia:
+
+- Created public Asset Management Companies(AMCs) in late 1990s to purchase
+portfolios of NPLs.
+
+---
+
+## The European Banking Authority(EBA) Proposal (2017)
+
+![](images/Andrea_Enria_wiki.jpg){ fig-align="center"}
+
+- Proposed by EBA Chair Andrea Enria.
+- Create an **EU-backed Asset Management Company (AMC)**.
+- AMC buys NPLs at **Real Economic Value (REV)**, not market price.
+- Includes **clawback clauses** and **stress testing** provisions.
+
+---
+
+## EBA Proposal: Strengths
+
+✅ Reduces **information asymmetry** via due diligence.  
+✅ Aggregates volume to improve liquidity.  
+✅ Encourages banks to sell by using REV instead of market price.
+
+---
+
+## EBA Proposal: Weaknesses
+
+❌  **Does not fix** market power or collusion.  
+❌  Clawback clause prevents full removal from balance sheets.  
+❌  Possible **conflict with EU State Aid rules**.  
+❌  Banks may still hesitate to sell if losses return later.
+
+---
+
+## Authors' View
+
+- AMC can eliminate information asymmetry
+
+- But cannot tackle market power and collusion
+
+- Auction theory can be of great help:
+
+    - Attract many diverse bidders.
+    - Prevent collusive behavior.
+    - Ensure truthful bidding.
+    - Allow flexible supply based on demand.
+
+---
+
+## Product-Mix Auction: The Solution
+
+- Invented by **Paul Klemperer**, used by Bank of England.
+- Bidders submit sealed bids across multiple varieties (e.g. secured/unsecured NPLs).
+- **Uniform pricing** per variety.
+- **Single round**, quick and resistant to manipulation.
+
+---
+
+## Product-Mix Auction: Bidding Stage
+
+The bank plans to auction NPLs, divided into two separate portfolios:
+
+- **Secured NPLs**: Loans backed by collateral (e.g. real estate, vehicles).  
+  If the borrower defaults, the lender can seize the asset.
+
+- **Unsecured NPLs**: Loans with no collateral backing.  
+  Recovery depends entirely on legal action or restructuring.
+
+Each bidder can submit offers on one or both types.  
+Prices are submitted as percentages of nominal (book) value.
+
+
+## Product-Mix Auction: Bids submitted
+
+| Bidder | Quantity (€M) | Secured Price | Unsecured Price |
+|--------|----------------|---------------|------------------|
+| A      | 800            | 51%           | 35%              |
+| B      | 600            | 53%           | 37%              |
+| C      | 750            | 56%           | 40%              |
+| D      | 550            | 50%           | 38%              |
+
+
+
+## Product-Mix Auction: Cutoff & Allocation
+
+The bank chooses:
+
+- Cutoff: 55% (secured), 37.5% (unsecured)
+
+
+| Bidder | Quantity (€M) | Secured Price | Unsecured Price |
+| ------ | ------------- | ------------- | --------------- |
+| A      | 800           | 51%           | 35%             |
+| B      | 600           | 53%           | 37%             |
+| C      | 750           | **56%** ✅     | **40%** ✅       |
+| D      | 550           | 50%           | **38%** ✅       |
+
+
+
+## Why Product-Mix Auction Works
+
+✅ **Uniform pricing** → encourages truthful bidding  
+✅ **Simultaneous bidding** → avoids guessing across markets  
+✅ **No entry deterrence** → small bidders can compete  
+✅ **Single round** → fast and resistant to collusion
+
+---
+
+## Critique of the Authors’ Proposal
+
+- ❌ **Assumes fully rational bidders**:
+
+- ❌ **No solution to bank reluctance**:
+  - Authors assume banks will willingly participate, but fear of loss exposure may block participation.
+
+- ❌ **Assumes deep, liquid markets**:
+  - Not all NPL classes attract enough bidders, especially under distressed conditions.
+
+
+---
+
+## Conclusion
+
+- EBA proposal is a strong start, inspired by **IMF and Asian models**.
+- But auction design still matters.
+- **Product-Mix Auction**: practical, scalable, competition-friendly.
+- Auction theory = a vital tool to unlock better financial markets.
