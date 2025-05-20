@@ -1,0 +1,8 @@
+h1.title {
+  background-image: url(images/price-is-right-title.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
+  height: 500px;
+  text-indent: -9999px; /* hide empty title text */
+}

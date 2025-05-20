@@ -1,6 +1,6 @@
 ---
 title: "From Man vs. Machine to Man + Machine"
-author: "Bhaswar Chakma"
+author: "BC"
 date: "02 May, 2025"
 format:
   revealjs:
@@ -41,12 +41,6 @@ This study brings that question into finance:
   - To explore this, the authors created an AI analyst and compared it to real professionals.
 
 
-
-
-
-
-
-
 ## Meet the Analysts
 
 ::::: columns
@@ -76,6 +70,17 @@ This study brings that question into finance:
 :::::
 
 
+## Research Questions
+
+This study addresses three core questions:
+
+1. Can an AI analyst predict 12-month-ahead stock returns more accurately than human analysts?
+
+2. When do human analysts outperform AI — and why?
+
+3. Does combining AI and human forecasts improve accuracy and reduce large errors?
+
+
 
 ## The Prediction Setup
 
@@ -90,32 +95,33 @@ In this study, both human and AI analysts forecast 12-month-ahead stock returns 
 
 
 
-## Research Questions
 
-This study addresses three core questions:
 
-1. Can an AI analyst predict 12-month-ahead stock returns more accurately than human analysts?
+## Methods: Overview
 
-2. When do human analysts outperform AI — and why?
 
-3. Does combining AI and human forecasts improve accuracy and reduce large errors?
+The AI analyst is an **ensemble of three models** — combining strengths across ML and deep learning.
 
-## Methodology: Overview
+- **Random Forest**  
 
-- The authors construct an AI analyst using machine learning
-- The model forecasts 12-month-ahead stock returns derived from target prices
-- Each forecast is based on a rolling 3-year window of past data, simulating real-time prediction
-- Human forecasts are not used as inputs — predictions are made entirely from public information
 
-## Methodology: Modeling Approach
+- **Gradient Boosting**  
 
-The AI analyst uses an ensemble of machine learning models:
 
-- Long Short-Term Memory (LSTM) networks — capture sequential patterns in financial time series
-- Random forest — robust to noise and effective with many predictors
-- Gradient boosting — excels at handling non-linear relationships and variable interactions
+- **LSTM (Long Short-Term Memory)**  
 
-- The ensemble integrates strengths of each model to improve predictive accuracy and robustness.
+
+Final forecast = median prediction across all three models
+
+
+## Methodology: Training Setup
+
+- Forecasts are made using a **rolling 3-year window** of past data  
+  → Simulates real-time prediction, avoiding lookahead bias
+
+- The AI model uses **only public information**  
+  → No human analyst inputs, no insider data
+
 
 
 ## The Data: Sample Overview
@@ -123,7 +129,7 @@ The AI analyst uses an ensemble of machine learning models:
 - **Data sources:**
   - I/B/E/S, Compustat, CRSP (structured data)
   - RavenPack (news sentiment), Twitter (social media)
-  - SEC EDGAR (filings), Kogan et al. (patents)
+  - SEC EDGAR (filings), Kogan et al. (2017) (patents)
 
 - Over 1.15 million target price forecasts, covering thousands of U.S. firms
 
@@ -138,19 +144,15 @@ The AI analyst is trained on a wide variety of publicly available information.
 - AI model: trained on 3 years of historical data prior to each forecast
 - Forecast target: 12-month stock return based on target price
 
-## The Data: Categories of inputs
+## Data Input Categories
 
 The model draws from six key categories of inputs:
 
-```{mermaid}
-graph TD
-  A[AI Analyst Inputs] --> B[Firm Data]
-  A --> C[Industry Data]
-  A --> D[Macro Data]
-  A --> E[Filings]
-  A --> F[Sentiment]
-  A --> G[Innovation]
+
+```{r, fig.align='center'}
+knitr::include_graphics("images/man-machine-data-cat.png")
 ```
+
 
 
 
@@ -282,6 +284,12 @@ Combining AI forecasts with analyst predictions and profiles creates a hybrid �
 3. Can combining AI and human forecasts improve results?
    - Yes, the hybrid model slightly improves accuracy and greatly reduces extreme forecasting errors.
 
+
+## Key Opportunities for Improvement  
+
+1. **Model Interpretability**: Use SHAP values  (SHapley Additive exPlanations) or partial dependence plots to explain predictions.
+
+2. **Robustness Across Market Conditions**: Assess performance across macroeconomic regimes (e.g., recessions vs. expansions) to test model stability under systemic market stress.
 
 
 
