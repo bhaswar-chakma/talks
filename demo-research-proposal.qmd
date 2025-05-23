@@ -1,0 +1,269 @@
+---
+title: "Research Proposal"
+author: "Bhaswar Chakma"
+date: "20 May, 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    center: true
+    #incremental: true
+    #css: style.css
+    embed-resources: true
+---
+
+## 
+
+
+```{r, fig.align='center'}
+knitr::include_graphics("images/research-prop-demo/01-seminar-1.PNG")
+```
+
+## 
+
+
+```{r, fig.align='center'}
+knitr::include_graphics("images/research-prop-demo/02-seminar-2.PNG")
+```
+
+## 
+
+
+```{r, fig.align='center'}
+knitr::include_graphics("images/research-prop-demo/03-seminar-3.PNG")
+```
+
+## 
+
+
+```{r, fig.align='center'}
+knitr::include_graphics("images/research-prop-demo/04-dell-1.PNG")
+```
+
+::: {.slide style="font-size: 0.5em;"}
+- In 2018, The Economist named her one of the decade’s eight best young economists.
+
+- In  2014 she was named by the IMF as the youngest of 25 economists under the age of 45 shaping thought about the global economy.
+:::
+
+
+
+##
+
+```{r, fig.align='center'}
+knitr::include_graphics("images/research-prop-demo/05-dell-2.PNG")
+```
+
+##
+
+```{r, fig.align='center'}
+knitr::include_graphics("images/research-prop-demo/06-dell-3.PNG")
+```
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## What is ESG and Why It Matters
+
+- **E**: Environmental — climate risk, emissions, energy use  
+- **S**: Social — labor rights, diversity, community impact  
+- **G**: Governance — board structure, executive compensation, ethics  
+- ESG evaluates non-financial risk and ethical standards  
+- Relevance: ESG data is unstructured and strategic → ideal for ML and causal inference
+:::
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Overview
+
+Three empirical papers on ESG and financial markets:
+
+1. **ESG Disclosure and Price Informativeness**  
+   → Do disclosures improve market efficiency?
+
+2. **ESG in Asset Pricing with Deep Learning**  
+   → Do ESG features improve stock return forecasts?
+
+3. **Institutional ESG Consistency**  
+   → Do institutions align ESG rhetoric with their actions?
+
+All papers combine machine learning and causal inference with financial and text data.
+:::
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 1 – Goals and Motivation
+
+**Main Goal:**  
+To examine whether ESG disclosures improve the efficiency of financial markets.
+
+**Key Questions:**  
+- Do ESG disclosures lead to lower return volatility?  
+- Do they reduce bid-ask spreads?  
+- Do they accelerate price discovery?
+
+**Why It Matters:**  
+- ESG reporting is increasing but varies in quality.  
+- Prior studies focus on the presence of disclosure, not the content.  
+- Investors and regulators need to know what kind of ESG reporting actually informs markets.
+:::
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 1 – What I Will Do
+
+- Collect ESG disclosure text from 10-Ks and sustainability reports  
+- Use BERT/RoBERTa to extract:  
+  - Sentiment, specificity, readability, topical focus  
+- Apply contrastive learning to detect boilerplate vs meaningful content  
+- Estimate market effects: volatility, spreads, price delay  
+- Identify causal effects using IV (e.g., regulatory changes)  
+- Combine ML with inference using prediction-powered methods
+:::
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 1 – Expected Results
+
+**Expected Results:**  
+- Forward-looking, specific ESG disclosures will reduce:
+
+  - Return volatility  
+  - Bid-ask spreads  
+  - Price delay
+
+**Why?**  
+- **Christensen, Serafeim, & Sikochi (2022):**  
+  High-quality ESG disclosures improve liquidity and transparency.  
+  → Content quality, not just disclosure presence, drives outcomes.
+:::
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 1 – My Contribution
+
+- Apply transformer NLP (BERT) to ESG reporting content  
+- Use contrastive learning to evaluate substance vs boilerplate  
+- Estimate causal effects using IV and prediction-powered inference [Zrnic and Candès (2023)]
+- Advance ESG market microstructure research using text-based methods
+:::
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 2 – Goals and Motivation
+
+**Main Goal:**  
+To test whether ESG features improve stock return prediction in a machine learning framework.
+
+**Key Questions:**  
+- Can ESG data improve asset pricing models?  
+- Are ESG-informed portfolios more profitable and stable?
+
+**Why It Matters:**  
+- Traditional models (e.g., Fama-French) assume linearity.  
+- ESG data is high-dimensional, likely nonlinear, and underused.  
+- ML has improved pricing models (Gu et al., 2020) but rarely includes ESG.
+:::
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 2 – What I Will Do
+
+- Build firm-month panel: returns, fundamentals, ESG (CRSP, Compustat, Bloomberg, LSEG)  
+- Apply ML models: Lasso, XGBoost, Neural Networks  
+- Add ESG features: emissions, board diversity, controversies  
+- Evaluate model performance: out-of-sample R², Sharpe ratio, turnover  
+- Interpret models using SHAP values and PDPs
+:::
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 2 – Expected Results
+
+**Expected Results:**  
+- ESG features will enhance predictive power  
+- ESG-augmented models will yield:  
+  - Higher Sharpe ratios  
+  - Better R²  
+  - Lower turnover
+
+**Why?**  
+- **Gu, Kelly, & Xiu (2020):**  
+  ML models outperform linear ones in return prediction.  
+  → Adding ESG may reveal alpha related to risk or preferences.
+:::
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 2 – My Contribution
+
+- First study integrating ESG into full ML asset pricing pipeline  
+- Demonstrates ESG alpha using interpretable ML  
+- Bridges predictive power and economic interpretation  
+- Offers practical tools for investors managing ESG portfolios
+:::
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 3 – Goals and Motivation
+
+**Main Goal:**  
+To assess whether institutional investors align ESG claims with their real behavior.
+
+**Key Questions:**  
+- Do ESG statements match actual voting and portfolio decisions?  
+- Do inconsistencies affect investor flows?
+
+**Why It Matters:**  
+- ESG credibility is under fire — greenwashing is a top concern  
+- No scalable method exists to measure ESG consistency  
+- Investor trust depends on aligning talk and action
+:::
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 3 – What I Will Do
+
+- Collect ESG policy statements, proxy votes (N-PX), and holdings (13F)  
+- Apply transformer NLP to extract ESG pledges by theme  
+- Link actions to claims using LinkTransformer + HDBSCAN  
+- Build ESG Consistency Index  
+- Use DiD regressions to test effect on fund flows (CRSP)
+:::
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 3 – Expected Results
+
+**Expected Results:**  
+- Many funds will show inconsistencies across statements, votes, and holdings  
+- Inconsistent funds will lose capital from ESG-conscious investors
+
+**Why?**  
+- **Raghunandan & Rajgopal (2022):**  
+  ESG-branded funds often vote against ESG proposals.  
+  → This disconnect signals symbolic rather than substantive commitment.
+:::
+
+
+
+::: {.slide style="font-size: 0.7em;"}
+## Paper 3 – My Contribution
+
+- Create the first scalable ESG Consistency Index  
+- Use NLP + record linkage + clustering to evaluate ESG behavior  
+- Quantify the financial consequences of ESG inconsistency  
+- Help investors and regulators hold ESG funds accountable
+:::
+
+
